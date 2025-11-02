@@ -6,5 +6,7 @@
  * @returns {number}
  */
 module.exports.compareSalary = function compareSalary(firstSalary, secondSalary, thirdSalary) {
-  throw new Error('Not implemented');
+  let minNumber = Math.min(firstSalary, secondSalary, thirdSalary);
+  let maxNumber = Math.max(firstSalary, secondSalary, thirdSalary);
+  return maxNumber - minNumber;
 };

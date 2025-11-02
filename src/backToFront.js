@@ -5,5 +5,7 @@
  * @returns {string}
  */
 module.exports.backToFront = function backToFront(str, symbolsCount) {
-  throw new Error('Not implemented');
+  if (symbolsCount > str.length) return str;
+  let copySymbols = str.slice(-symbolsCount);
+  return `${copySymbols}${str}${copySymbols}`;
 };
