@@ -14,5 +14,25 @@
  * @returns {function}
  */
 module.exports.censorship = function censorship(forbidden) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return function (str) {
+    let result = str;
+
+    for (let i = 0; i < forbidden.length; i++) {
+      const word = forbidden[i];
+      const mask = '*'.repeat(word.length);
+
+      let index = result.indexOf(word);
+
+      while (index !== -1) {
+        const before = result.slice(0, index);
+        const after = result.slice(index + word.length);
+
+        result = before + mask + after;
+
+        index = result.indexOf(word);
+      }
+    }
+
+    return result;
+  };
 };
